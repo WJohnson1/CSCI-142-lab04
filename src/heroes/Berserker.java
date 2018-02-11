@@ -15,4 +15,9 @@ public class Berserker extends Hero{
     public void attack(Hero h){
         h.takeDamage(this.DAMAGE_AMOUNT);
     }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
 }
