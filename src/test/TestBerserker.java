@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
  * @author Sean Strout @ RIT CS
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class  TestBerserker {
+public class TestBerserker {
     /** dragon berserker */
     private static Hero dragonBerserker;
 

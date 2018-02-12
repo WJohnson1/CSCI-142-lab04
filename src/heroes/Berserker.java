@@ -8,12 +8,14 @@ public class Berserker extends Hero{
     protected static final int DAMAGE_AMOUNT = 20;
     protected Berserker(Team team) {
         super(Heroes.getName(team, Role.BERSERKER),BERSERKER_HIT_POINTS);
+
     }
     public Role getRole(){
         return Role.BERSERKER;
     }
+    @Override
     public void attack(Hero h){
-        h.takeDamage(this.DAMAGE_AMOUNT);
+        h.takeDamage(DAMAGE_AMOUNT);
     }
 
     @Override

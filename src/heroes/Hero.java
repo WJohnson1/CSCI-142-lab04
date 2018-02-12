@@ -11,17 +11,17 @@ public class Hero{
         this.max_health = max_health;
     }
     public static Hero create(Role r, Team t, Party p){
-        int health = 0;
+        int health;
+        Hero h;
         if (r == Role.BERSERKER){
-            health = Berserker.BERSERKER_HIT_POINTS;
+            h = new Berserker(t);
         }
         else if (r == Role.HEALER){
-            health = Healer.HEALER_HIT_POINTS;
+            h = new Healer(t,p);
         }
         else{
-            health = Tank.TANK_HIT_POINTS;
+            h = new Tank(t);
         }
-        Hero h = new Hero(Heroes.getName(t,r),health);
         p.addHero(h);
         return h;
     }
@@ -41,6 +41,7 @@ public class Hero{
             h.takeDamage(Berserker.DAMAGE_AMOUNT);
         }
         else if (this.getRole() == Role.HEALER) {
+            this.heal(Healer.HEAL_AMOUNT);
             h.takeDamage(Healer.DAMAGE_AMOUNT);
         }
         else {
@@ -85,6 +86,7 @@ public class Hero{
             return false;
         }
     }
+
     public int getMax_health(){
         return this.max_health;
     }
