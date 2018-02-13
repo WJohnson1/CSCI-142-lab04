@@ -1,7 +1,6 @@
 package game;
 
-import heroes.Hero;
-import heroes.Heroes;
+import heroes.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,39 +12,39 @@ public class HeroParty extends Object implements heroes.Party{
         this.heroes = new ArrayList<Hero>();
         this.team = team;
         if (seed == 0) {
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.TANK),40));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.HEALER), 35));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.BERSERKER), 30));
+            this.addHero(Hero.create(Heroes.Role.TANK,team,this));
+            this.addHero(Hero.create(Heroes.Role.HEALER,team,this));
+            this.addHero(Hero.create(Heroes.Role.BERSERKER,team,this));
         }
         else if(seed == 1){
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.HEALER), 35));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.TANK),40));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.BERSERKER), 30));
+            this.addHero(Hero.create(Heroes.Role.HEALER,team,this));
+            this.addHero(Hero.create(Heroes.Role.TANK,team,this));
+            this.addHero(Hero.create(Heroes.Role.BERSERKER,team,this));
         }
         else if(seed == 2){
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.TANK),40));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.BERSERKER), 30));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.HEALER), 35));
+            this.addHero(Hero.create(Heroes.Role.TANK,team,this));
+            this.addHero(Hero.create(Heroes.Role.BERSERKER,team,this));
+            this.addHero(Hero.create(Heroes.Role.HEALER,team,this));
         }
         else if(seed == 3){
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.BERSERKER), 30));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.HEALER), 35));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.TANK),40));
+            this.addHero(Hero.create(Heroes.Role.BERSERKER,team,this));
+            this.addHero(Hero.create(Heroes.Role.HEALER,team,this));
+            this.addHero(Hero.create(Heroes.Role.TANK,team,this));
         }
         else if(seed == 5){
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.HEALER), 35));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.BERSERKER), 30));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.TANK),40));
+            this.addHero(Hero.create(Heroes.Role.HEALER,team,this));
+            this.addHero(Hero.create(Heroes.Role.BERSERKER,team,this));
+            this.addHero(Hero.create(Heroes.Role.TANK,team,this));
         }
         else if(seed == 7){
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.BERSERKER), 30));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.TANK),40));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.HEALER), 35));
+            this.addHero(Hero.create(Heroes.Role.BERSERKER,team,this));
+            this.addHero(Hero.create(Heroes.Role.TANK,team,this));
+            this.addHero(Hero.create(Heroes.Role.HEALER,team,this));
         }
         else {
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.TANK),40));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.HEALER), 35));
-            this.addHero(new Hero(Heroes.getName(team, Heroes.Role.BERSERKER), 30));
+            this.addHero(Hero.create(Heroes.Role.TANK,team,this));
+            this.addHero(Hero.create(Heroes.Role.HEALER,team,this));
+            this.addHero(Hero.create(Heroes.Role.BERSERKER,team,this));
         }
     }
 

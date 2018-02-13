@@ -4,9 +4,9 @@ import game.Team;
 import heroes.Heroes.Role;
 
 public class Berserker extends Hero{
-    protected static final int BERSERKER_HIT_POINTS = 30;
-    protected static final int DAMAGE_AMOUNT = 20;
-    protected Berserker(Team team) {
+    private static final int BERSERKER_HIT_POINTS = 30;
+    private static final int DAMAGE_AMOUNT = 20;
+    public Berserker(Team team) {
         super(Heroes.getName(team, Role.BERSERKER),BERSERKER_HIT_POINTS);
 
     }

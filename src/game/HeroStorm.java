@@ -9,8 +9,6 @@ public class HeroStorm {
         int count = 1;
         boolean a = true;
         while (d.getHeroes().size() > 0 && l.getHeroes().size() > 0) {
-            System.out.println(d.getHeroes().size());
-            System.out.println(l.getHeroes().size());
             System.out.println("Battle #" + count);
             System.out.println("==========");
             System.out.println(d.toString() + ":");
@@ -65,6 +63,12 @@ public class HeroStorm {
             }
             count++;
             System.out.println();
+        }
+        if (d.getHeroes().size() == 0){
+            System.out.println("Team Lion wins!");
+        }
+        else {
+            System.out.println("Team Dragon wins!");
         }
     }
     public void play(){

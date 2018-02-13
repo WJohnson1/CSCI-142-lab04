@@ -1,28 +1,34 @@
 package heroes;
 import game.Team;
 import heroes.Heroes.Role;
-public class Hero{
+public abstract class Hero{
     private String name;
     private int health;
     private int max_health;
+    private Party party;
+    private Team team;
+    private int max_dmg;
     public Hero(String name, int max_health){
         this.name = name;
         this.health = max_health;
         this.max_health = max_health;
     }
     public static Hero create(Role r, Team t, Party p){
-        int health;
         Hero h;
         if (r == Role.BERSERKER){
             h = new Berserker(t);
+            h.max_dmg = 20;
         }
         else if (r == Role.HEALER){
-            h = new Healer(t,p);
+            h = new Healer(t);
+            h.max_dmg = 10;
         }
         else{
             h = new Tank(t);
+            h.max_dmg = 15;
         }
-        p.addHero(h);
+        h.party = p;
+        h.team = t;
         return h;
     }
     public Role getRole(){
@@ -36,37 +42,17 @@ public class Hero{
             return Role.TANK;
         }
     }
+
     public void attack(Hero h){
-        if (this.getRole() == Role.BERSERKER) {
-            h.takeDamage(Berserker.DAMAGE_AMOUNT);
-        }
-        else if (this.getRole() == Role.HEALER) {
-            this.heal(Healer.HEAL_AMOUNT);
-            h.takeDamage(Healer.DAMAGE_AMOUNT);
-        }
-        else {
-            h.takeDamage(Tank.DAMAGE_AMOUNT);
-        }
+        h.takeDamage(this.max_dmg);
     }
     public String getName(){
         return this.name;
     }
     public void heal(int health){
         this.health= this.health+health;
-        if (this.getRole() == Role.BERSERKER){
-            if (this.health>Berserker.BERSERKER_HIT_POINTS){
-                this.health = Berserker.BERSERKER_HIT_POINTS;
-            }
-        }
-        else if (this.getRole() == Role.HEALER){
-            if (this.health>Healer.HEALER_HIT_POINTS){
-                this.health = Healer.HEALER_HIT_POINTS;
-            }
-        }
-        else if (this.getRole() == Role.TANK){
-            if (this.health>Tank.TANK_HIT_POINTS){
-                this.health = Tank.TANK_HIT_POINTS;
-            }
+        if (this.health>this.max_health){
+            this.health = this.max_health;
         }
         System.out.println(this.getName() + " heals " + health + " points");
 
@@ -80,6 +66,7 @@ public class Hero{
     }
     public boolean hasFallen(){
         if (this.health<=0){
+            System.out.println(this.getName() + " has fallen!");
             return true;
         }
         else{
@@ -96,5 +83,9 @@ public class Hero{
     }
     public int gethealth() {
         return this.health;
+    }
+
+    public Party getParty() {
+        return party;
     }
 }

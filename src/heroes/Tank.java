@@ -6,7 +6,7 @@ public class Tank extends Hero{
     protected static final int DAMAGE_AMOUNT = 15;
     protected static final double SHIELD_DMG_MULTIPLIER = 0.9;
     protected static final int TANK_HIT_POINTS = 40;
-    protected Tank(Team team) {
+    public Tank(Team team) {
         super(Heroes.getName(team, Heroes.Role.TANK),TANK_HIT_POINTS);
     }
     public Heroes.Role getRole(){
